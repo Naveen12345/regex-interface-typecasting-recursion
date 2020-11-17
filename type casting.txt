@@ -1,0 +1,125 @@
+1) Declaring Type casting 
+
+var a int = 100
+
+var b float64 = float64(a)
+
+var c int64 = int64(a)
+
+
+2)
+package main 
+  
+import "fmt"
+  
+func main() { 
+  
+   
+    var totalsum int = 200
+    var number int = 10
+    var avg float32 
+  
+ 
+    avg = float32(totalsum) / float32(number) 
+  
+
+    fmt.Printf("Average = %f\n", avg) 
+}
+
+OUTPUT:-
+ 
+Average = 20.000000
+
+
+3)wrong assignment
+
+
+package main 
+  
+import "fmt"
+  
+func main() { 
+var a int64 = 200
+
+
+var b int = a
+
+var c int = 100
+
+
+var addition = a + c
+
+fmt.Printf(b)
+}
+
+OUTPUT:-
+
+./prog.go:9:5: cannot use geek1 (type int64) as type int in assignment
+./prog.go:14:22: invalid operation: geek1 + geek3 (mismatched types int64 and int)
+./prog.go:16:11: cannot use geek2 (type int) as type string in argument to fmt.Printf
+
+
+4)
+
+package main
+
+
+import (
+	"fmt"
+)
+
+func main() {
+
+  var a int=6
+  var b float64=2
+  var c int=a/b
+	fmt.Println("Division of a and b is: ",c)
+}
+
+
+OUTPUT:-
+
+./prog.go:12:14: invalid operation: a / b (mismatched types int and float64)
+
+5)
+
+
+package main
+
+
+import (
+	"fmt"
+)
+
+func main() {
+
+  var a float64=6
+  var b float64=2
+  var c float64=a/b
+	fmt.Println("Division of a and b is: ",c)
+}
+
+OUTPUT:-
+
+Division of a and b is:  3
+
+6)
+
+package main
+
+
+import (
+	"fmt"
+)
+
+func main() {
+
+  var a int=100
+  var b float64=2
+  var c float64=float64(a)/b
+	fmt.Println("Division of a and b is: ",c)
+}
+
+OUTPUT:-
+
+Division of a and b is:  50

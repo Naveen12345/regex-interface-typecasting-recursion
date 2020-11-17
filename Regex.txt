@@ -1,0 +1,149 @@
+1) Syntax:-
+
+func MatchString(pattern string, s string)
+
+
+2)
+package main 
+  
+import ( 
+    "fmt"
+    "regexp"
+) 
+  
+func main() { 
+  
+
+    str := "kloudlearn"
+  
+
+    match, err := regexp.MatchString("cloud", str) 
+    fmt.Println("Match: ", match, " Error: ", err)
+ 
+    match1, err := regexp.MatchString("kloud", str) 
+    fmt.Println("Match1: ", match1, " Error: ", err)
+  
+ 
+} 
+
+OUTPUT:-
+
+Match:  false  Error:  <nil>
+Match1:  true  Error:  <nil>
+
+3)
+
+package main
+import (
+  "fmt"
+  "regexp"
+)
+
+func main() {
+  re := regexp.MustCompile("kloudlearn")
+  
+  fmt.Println(re.FindString("kloud"))
+  fmt.Println(re.FindString("cloud"))
+  fmt.Println(re.FindString("learn"))
+  fmt.Println(re.FindString("loud"))
+}
+
+4)
+
+
+package main
+import (
+  "fmt"
+  "regexp"
+)
+
+func main() {
+  re := regexp.MustCompile("loud")
+  
+  fmt.Println(re.FindString("louder"))
+  fmt.Println(re.FindString("cloud"))
+  fmt.Println(re.FindString("naveen"))
+  fmt.Println(re.FindString("kloud"))
+}
+
+OUTPUT:
+
+loud
+loud
+
+loud
+
+
+5)
+
+package main
+import (
+  "fmt"
+  "regexp"
+)
+
+func main() {  
+  re := regexp.MustCompile("nav")
+  fmt.Println(re.FindStringIndex("naveen"))
+  fmt.Println(re.FindStringIndex("neevan"))
+  fmt.Println(re.FindStringIndex("navy"))
+}
+
+
+OUTPUT:-
+
+[0 3]
+[]
+[0 3]
+
+6)
+
+package main
+import (
+  "fmt"
+  "regexp"
+)
+
+func main() { 
+  re := regexp.MustCompile("p([a-z]+)ch")
+  fmt.Println(re.FindStringSubmatch("peach punch"))
+  fmt.Println(re.FindStringSubmatch("cricket"))
+}
+
+
+OUTPUT:-
+
+[peach ea]
+[]
+
+7)
+
+package main
+
+import (
+	"fmt"
+	"regexp"
+)
+
+func main() {
+	
+	str2 := "abcd@gmail_yahoo.com"
+	str3 := "abcd@gmail-yahoo.com"
+	str4 := "abcd@gmailyahoo"
+	
+
+	re := regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
+
+		
+	
+	fmt.Printf("Email: %v :%v\n", str2, re.MatchString(str2))
+	fmt.Printf("Email: %v :%v\n", str3, re.MatchString(str3))
+	fmt.Printf("Email: %v :%v\n", str4, re.MatchString(str4))
+	
+}
+
+OUTPUT:-
+
+Email: abcd@gmail_yahoo.com :false
+Email: abcd@gmail-yahoo.com :true
+Email: abcd@gmailyahoo :true

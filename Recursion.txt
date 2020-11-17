@@ -1,0 +1,200 @@
+1)
+package main
+
+import "fmt"
+
+func fact(i int)int {
+   if(i <= 1) {
+      return 1
+   }
+   return i * fact(i - 1)
+}
+func main() { 
+   var i int = 5
+   fmt.Printf("Factorial of %d is %d", i, fact(i))
+}
+
+OUTPUT:-
+
+Factorial of 5 is 120
+
+2)
+
+package main
+
+import "fmt"
+
+func fib(i int) int {
+   if i == 0 {
+      return 0
+   }
+   if i == 1 {
+      return 1
+   }
+   return fib(i-1) + fib(i-2)
+}
+func main() {
+   var i int
+   for i = 0; i < 10; i++ {
+      fmt.Printf("%d ", fib(i))
+   }
+}
+
+OUTPUT:-
+
+0 1 1 2 3 5 8 13 21 34
+
+3)
+
+
+
+package main   
+import ( 
+    "fmt"
+) 
+func main() { 
+        var nav func(int) 
+        nav = func(number int) { 
+            if number == 0 { 
+                    return 
+            } else { 
+            fmt.Println(number) 
+                  nav(number-1) 
+            } 
+        } 
+         nav(10) 
+} 
+
+OUTPUT:-
+
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+
+4)
+
+package main  
+import ( 
+    "fmt"
+) 
+func print_one(n int) { 
+    if n >= 0 { 
+        fmt.Println("In first function:", n) 
+        print_two(n - 1) 
+    } 
+} 
+func print_two(n int) { 
+      if n >= 0 { 
+        fmt.Println("In second function:", n) 
+        print_one(n - 1) 
+    } 
+} 
+func main() { 
+    print_one(10) 
+    print_one(-1) 
+} 
+
+
+OUTPUT:-
+
+In first function: 10
+In second function: 9
+In first function: 8
+In second function: 7
+In first function: 6
+In second function: 5
+In first function: 4
+In second function: 3
+In first function: 2
+In second function: 1
+In first function: 0 
+
+
+5)
+
+package main
+
+import (
+	"fmt"
+)
+func number(n int){
+     if n>0{
+       fmt.Println(n)
+       number(n-1)
+       }}
+func main(){
+      number(10)
+	
+}
+
+OUTPUT:-
+
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
+6)
+package main 
+  
+import ( 
+    "fmt"
+) 
+func print_hello(){ 
+    fmt.Println("Kloudlearn") 
+    print_hello() 
+}  
+func main(){ 
+      print_hello() 
+} 
+
+
+OUTPUT:-
+
+timeout running program
+Kloudlearn
+Kloudlearn
+Kloudlearn
+Kloudlearn
+Kloudlearn
+
+7)
+
+package main   
+import ( 
+    "fmt"
+) 
+func main() { 
+        var anon_func func(int) 
+        anon_func = func(number int) { 
+            if number == 0 { 
+                    return 
+            } else { 
+            fmt.Println(number) 
+                  anon_func(number-1) 
+            } 
+        } 
+         anon_func(5) 
+} 
+
+OUTPUT:-
+
+5
+4
+3
+2
+1

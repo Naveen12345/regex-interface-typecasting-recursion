@@ -1,0 +1,168 @@
+SYNTAX:-
+
+type interface_name interface{
+
+// Method signatures
+
+}
+
+EX:-
+
+// Creating an interface
+type myinterface interface{
+
+// Methods
+fun1() int
+fun2() float64
+}
+
+
+1)
+
+package main 
+import "fmt"
+type tank interface { 
+    Tarea() float64 
+}   
+type myvalue struct { 
+    radius float64 
+    height float64 
+} 
+func (m myvalue) Tarea() float64 { 
+      return 2*m.radius*m.height + 
+        2*3.14*m.radius*m.radius 
+}   
+func main() { 
+    var t tank 
+    t = myvalue{5, 22} 
+    fmt.Println("Area of tank :", t.Tarea()) 
+}
+
+OUTPUT:-
+
+Area of tank : 377
+
+2)
+
+
+package main 
+import "fmt"
+type circle interface { 
+    area() float64 
+    Volume() float64 
+} 
+func main() { 
+    var c circle
+    fmt.Println("Value of the tank interface is: ", c) 
+    fmt.Printf("Type of the tank interface is: %T ", c) 
+} 
+
+OUTPUT:-
+
+Value of the tank interface is:  <nil>
+Type of the tank interface is: <nil> 
+
+3)
+
+package main 
+  
+import "fmt"
+  
+func myfun(a interface{}) { 
+    val := a.(string) 
+    fmt.Println("Value: ", val) 
+} 
+func main() {  
+    var val interface { 
+    } = "Kloudlearn"
+      
+    myfun(val) 
+}
+
+OUTPUT:-
+
+Value:  Kloudlearn
+
+
+4)
+
+package main
+
+import (
+	"fmt"
+)
+
+
+type VowelsFinder interface {
+	FindVowels() []rune
+}
+
+type MyString string
+
+
+func (ms MyString) FindVowels() []rune {
+	var vowels []rune
+	for _, rune := range ms {
+		if rune == 'a' || rune == 'e' || rune == 'i' || rune == 'o' || rune == 'u' {
+			vowels = append(vowels, rune)
+		}
+	}
+	return vowels
+}
+
+func main() {
+	name := MyString("Sam Anderson")
+	var v VowelsFinder
+	v = name 
+	fmt.Printf("Vowels are %c", v.FindVowels())
+
+}
+
+OUTPUT:-
+
+Vowels are [a e o]
+
+5)
+
+package main
+
+import (
+    "fmt"
+)
+
+func myFunc(a interface{}) {
+    fmt.Println(a)
+}
+
+func main() {
+    var age int
+    age = 25
+
+    myFunc(age)
+}
+
+OUTPUT:-
+25
+
+6)
+
+package main
+import "fmt"
+type Guitarist interface {
+    PlayGuitar()
+}
+type BaseGuitarist struct {
+    Name string
+}
+func (b BaseGuitarist) PlayGuitar() {
+    fmt.Printf("%s plays the Bass Guitar\n", b.Name)
+}
+func main() {
+    var player BaseGuitarist
+    player.Name = "Naveen"
+    player.PlayGuitar()
+}
+
+OUTPUT:-
+
+Naveen plays the Bass Guitar
